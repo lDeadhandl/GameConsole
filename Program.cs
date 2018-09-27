@@ -10,22 +10,24 @@ namespace GameConsole
     {
         static void Main(string[] args)
         {
-            //making an array of 3 player characters
-            PlayerCharacter[] players = new PlayerCharacter[3]
+            PlayerCharacter sarah = new PlayerCharacter(new DiamondSkinDefense())
             {
-                new PlayerCharacter { Name = "Sarah}"},
-                new PlayerCharacter(), // Name = null
-                null // PlayerCharacter = null 
+                Name = "Sarah"
             };
-            // null conditional operator when working with arrays
-            string p1 = players?[0]?.Name;
-            string p2 = players?[1]?.Name;
-            string p3 = players?[2]?.Name; 
 
-            //var player = new PlayerChara
-            //player.DaysSinceLastLogin = 42;
-            //int days = player?.DaysSinceLastLogin ?? -1;
-            //Console.WriteLine(days);
+            PlayerCharacter amrit = new PlayerCharacter(new IronBonesDefense())
+            {
+                Name = "Amrit"
+            };
+
+            PlayerCharacter gentry = new PlayerCharacter(new NullDefence())
+            {
+                Name = "Gentry"
+            };
+
+            sarah.Hit(10);
+            amrit.Hit(10);
+            gentry.Hit(10);
 
             Console.ReadLine();
         }
